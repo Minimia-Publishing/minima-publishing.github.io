@@ -108,14 +108,19 @@
 
         .project-card {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             background: #151515;
-            border: 1px solid var(--error-red);
+            border: 1px solid var(--accent-yellow);
             border-radius: 12px;
             padding: 1.5rem;
             text-decoration: none;
             color: inherit;
             margin-top: 2rem;
+            transition: background 0.3s;
+        }
+
+        .project-card:hover {
+            background: #1a1a1a;
         }
 
         .project-logo {
@@ -123,6 +128,7 @@
             height: 70px;
             border-radius: 14px;
             margin-right: 1.5rem;
+            margin-top: 0.5rem;
         }
 
         .status-tag {
@@ -141,6 +147,7 @@
             padding: 4rem;
             border-radius: 20px;
             border: 1px solid var(--border);
+            margin-bottom: 4rem;
         }
 
         .email-btn {
@@ -165,8 +172,18 @@
             font-weight: 600;
         }
 
+        footer {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
+            .project-card { flex-direction: column; align-items: center; text-align: center; }
+            .project-logo { margin-right: 0; margin-bottom: 1rem; }
         }
     </style>
 </head>
@@ -208,7 +225,8 @@
                 <div>
                     <h3 style="margin-bottom: 0.2rem;">Dice Minima</h3>
                     <span class="status-tag">Coming Summer 2026</span>
-                    <p style="margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--text-secondary);">diceminima.com</p>
+                    <p style="margin: 0.8rem 0; font-size: 0.95rem;">A 100% free, minimalist RPG dice roller designed for speed and simplicity. Available across Android, iOS, and the web with no ads and a focus on clean, essential utility.</p>
+                    <p style="margin: 0; font-size: 0.9rem; color: var(--accent-purple); font-weight: 600;">Visit diceminima.com →</p>
                 </div>
             </a>
         </div>
@@ -218,6 +236,10 @@
             <p>If you're a solo developer with a finished app or a solid prototype, we want to help you publish it the right way.</p>
             <a href="mailto:contact@minimapublishing.com" class="email-btn">contact@minimapublishing.com</a>
         </div>
+
+        <footer>
+            <p>&copy; 2026 Minima Publishing LLC. This site is owned and operated by Minima Publishing LLC.</p>
+        </footer>
     </div>
 </body>
 </html>
