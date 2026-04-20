@@ -110,18 +110,24 @@
             display: flex;
             align-items: flex-start;
             background: #151515;
-            border: 1px solid var(--accent-yellow);
+            border: 1px solid var(--border);
             border-radius: 12px;
             padding: 1.5rem;
             text-decoration: none;
             color: inherit;
             margin-top: 2rem;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
 
         .project-card:hover {
             background: #1a1a1a;
+            transform: scale(1.01);
         }
+
+        /* Project Status Colors */
+        .project-card.status-new { border-color: var(--error-red); }
+        .project-card.status-announced { border-color: var(--accent-yellow); }
+        .project-card.status-released { border-color: var(--accent-green); }
 
         .project-logo {
             width: 70px;
@@ -220,7 +226,7 @@
 
         <div class="card" style="margin-bottom: 4rem;">
             <h2>Current Projects</h2>
-            <a href="https://diceminima.com/" class="project-card">
+            <a href="https://diceminima.com/" class="project-card status-announced">
                 <img src="iconappstore.png" alt="Dice Minima" class="project-logo">
                 <div>
                     <h3 style="margin-bottom: 0.2rem; color: white;">Dice Minima</h3>
