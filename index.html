@@ -3,149 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minima Publishing LLC</title>
+    <title>Minima Publishing LLC | Professional Android App Distribution</title>
     <style>
+        :root {
+            --bg-dark: #0f0f0f;
+            --card-bg: #1c1c1c;
+            --accent: #4285F4;
+            --text-main: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --border: #333333;
+            --accent-green: #7EEF83;
+            --accent-yellow: #FCBD02;
+            --accent-purple: #A45CFA;
+            --error-red: #D55252;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
-            background-color: #181818; /* AppBackground */
-            color: #A9B7C6; /* TextcolorNormal */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-            padding: 2rem;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
         }
-        .header {
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
+
         h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            color: #4285F4; /* TextcolorSelected */
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
             margin: 0;
+            letter-spacing: -1px;
             text-transform: uppercase;
-            letter-spacing: 2px;
         }
-        .main-container {
-            max-width: 800px;
-            width: 100%;
+
+        .subtitle {
+            color: var(--accent);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            letter-spacing: 1px;
         }
-        .section {
-            background: #2F2F2F; /* HistoryBackground */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-            border: 1px solid #545252; /* UnselectedDiceField */
+            padding: 2.5rem;
+            transition: all 0.3s ease;
         }
-        .section-title {
-            color: #4285F4;
-            font-size: 1.5rem;
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            font-size: 1.8rem;
             margin-top: 0;
             margin-bottom: 1.5rem;
-            border-bottom: 1px solid #545252;
-            padding-bottom: 0.5rem;
+            color: white;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
         }
-        /* Project Card */
+
+        h3 {
+            color: var(--accent);
+            margin-top: 0;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
         .project-card {
             display: flex;
             align-items: center;
-            background: #1e1e1e;
-            border-radius: 10px;
+            background: #151515;
+            border: 1px solid var(--error-red);
+            border-radius: 12px;
             padding: 1.5rem;
-            border: 1px solid #D55252; /* RedError border to make it pop */
-            transition: transform 0.2s;
             text-decoration: none;
             color: inherit;
+            margin-top: 2rem;
         }
-        .project-card:hover {
-            transform: translateY(-5px);
-            background: #252525;
-        }
+
         .project-logo {
-            width: 80px;
-            height: 80px;
-            border-radius: 15px;
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
             margin-right: 1.5rem;
-            object-fit: cover;
         }
-        .project-info h3 {
-            margin: 0;
-            color: #4285F4;
-            font-size: 1.4rem;
+
+        .status-tag {
+            background: rgba(252, 189, 2, 0.1);
+            color: var(--accent-yellow);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
         }
-        .project-status {
-            color: #FCBD02; /* TextcolorAdvantage2 */
-            font-weight: bold;
-            margin: 0.5rem 0;
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(145deg, #1c1c1c, #111);
+            padding: 4rem;
+            border-radius: 20px;
+            border: 1px solid var(--border);
         }
-        .project-link {
-            color: #A45CFA; /* TextcolorAdvantage3 */
-            font-size: 0.9rem;
-        }
-        /* Publisher Info */
-        .info-text {
-            line-height: 1.6;
-        }
-        .contact-email {
-            color: #7EEF83; /* RollTextcolor */
-            font-weight: bold;
-            font-size: 1.1rem;
-            display: block;
-            margin-top: 1rem;
+
+        .email-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
             text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: background 0.3s;
         }
-        .contact-email:hover {
-            text-decoration: underline;
+
+        .email-btn:hover {
+            background: #3367d6;
         }
-        ul {
-            padding-left: 1.5rem;
+
+        .bold-white {
+            color: white;
+            font-weight: 600;
         }
-        li {
-            margin-bottom: 0.5rem;
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Minima Publishing LLC</h1>
-    </div>
+    <div class="container">
+        <header>
+            <h1>Minima Publishing</h1>
+            <div class="subtitle">PREMIUM ANDROID DISTRIBUTION</div>
+        </header>
 
-    <div class="main-container">
-        <div class="section">
-            <h2 class="section-title">Our Projects</h2>
-            <a href="https://diceminima.com/" class="project-card">
-                <img src="iconappstore.png" alt="Dice Minima Logo" class="project-logo">
-                <div class="project-info">
-                    <h3>Dice Minima</h3>
-                    <p class="project-status">Coming Summer 2026</p>
-                    <p class="project-link">diceminima.com</p>
-                </div>
-            </a>
-        </div>
+        <div class="grid">
+            <div class="card">
+                <h2>The Hard Stuff</h2>
+                <p>We handle the heavy lifting that keeps solo developers from building. Our core focus is keeping your apps compliant and profitable.</p>
+                <ul class="feature-list">
+                    <li><span class="bold-white">Policy Compliance:</span> Full TCF v2.3 implementation and management.</li>
+                    <li><span class="bold-white">Latest Standards:</span> Guaranteed SDK 37 target compliance.</li>
+                    <li><span class="bold-white">Ad Integration:</span> Professional Google AdMob/AdManager setup.</li>
+                    <li><span class="bold-white">Vigorous Testing:</span> Complete QA and device compatibility testing.</li>
+                </ul>
+            </div>
 
-        <div class="section">
-            <h2 class="section-title">For Solo Developers</h2>
-            <div class="info-text">
-                <p>Minima Publishing is a specialized software publisher dedicated to supporting solo developers. We handle the complexities of distribution, marketing, and publishing so you can focus on what you do best: building great software.</p>
-                
-                <p><strong>Our Philosophy:</strong></p>
-                <ul>
-                    <li><strong>Ownership:</strong> You retain 100% ownership of your source code and intellectual property.</li>
-                    <li><strong>Distribution:</strong> We handle the rights to distribute and manage your work across global platforms.</li>
-                    <li><strong>Support:</strong> We provide the infrastructure and expertise needed to reach your audience effectively.</li>
+            <div class="card">
+                <h2>Our Terms</h2>
+                <p>Designed for solo developers who value their independence above all else.</p>
+                <ul class="feature-list">
+                    <li><span class="bold-white">100% Ownership:</span> You retain all rights to your source code and IP.</li>
+                    <li><span class="bold-white">Simple License:</span> You grant us the right to distribute and market.</li>
+                    <li><span class="bold-white">Global Reach:</span> Professional distribution across all major Android platforms.</li>
+                    <li><span class="bold-white">Transparent Partnership:</span> No hidden fees, no predatory terms.</li>
                 </ul>
             </div>
         </div>
 
-        <div class="section">
-            <h2 class="section-title">Get in Touch</h2>
-            <div class="info-text">
-                <p>Are you a solo developer looking for help bringing your project to market? We'd love to hear from you.</p>
-                <a href="mailto:contact@minimapublishing.com" class="contact-email">contact@minimapublishing.com</a>
-            </div>
+        <div class="card" style="margin-bottom: 4rem;">
+            <h2>Current Projects</h2>
+            <a href="https://diceminima.com/" class="project-card">
+                <img src="iconappstore.png" alt="Dice Minima" class="project-logo">
+                <div>
+                    <h3 style="margin-bottom: 0.2rem;">Dice Minima</h3>
+                    <span class="status-tag">Coming Summer 2026</span>
+                    <p style="margin: 0.5rem 0 0; font-size: 0.9rem; color: var(--text-secondary);">diceminima.com</p>
+                </div>
+            </a>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Scale?</h2>
+            <p>If you're a solo developer with a finished app or a solid prototype, we want to help you publish it the right way.</p>
+            <a href="mailto:contact@minimapublishing.com" class="email-btn">contact@minimapublishing.com</a>
         </div>
     </div>
 </body>
