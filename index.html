@@ -128,6 +128,10 @@
         .project-card.status-new { border-color: var(--error-red); }
         .project-card.status-announced { border-color: var(--accent-yellow); }
         .project-card.status-released { border-color: var(--accent-green); }
+        .project-card.status-released .status-tag {
+            background: rgba(126, 239, 131, 0.1);
+            color: var(--accent-green);
+        }
 
         .project-logo {
             width: 70px;
@@ -237,11 +241,11 @@
 
         <div class="card" style="margin-bottom: 4rem;">
             <h2>Current Projects</h2>
-            <a href="https://diceminima.com/" class="project-card status-announced">
+            <a href="https://diceminima.com/" class="project-card status-released">
                 <img src="iconappstore.png" alt="Dice Minima" class="project-logo">
                 <div>
                     <h3 style="margin-bottom: 0.2rem; color: white;">Dice Minima</h3>
-                    <span class="status-tag">Coming Summer 2026</span>
+                    <span class="status-tag">Out Now</span>
                     <p style="margin: 0.8rem 0; font-size: 0.95rem;">A high-performance, low-latency dice engine for TTRPG players and DMs.</p>
                     <p style="margin: 0; font-size: 0.9rem; color: var(--accent); font-weight: 600;">Visit diceminima.com →</p>
                 </div>
